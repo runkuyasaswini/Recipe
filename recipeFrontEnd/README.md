@@ -1,44 +1,106 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+___TODO__:
 
-In the project directory, you can run:
+# Recipe World (my first MERN Project)
 
-### `npm start`
+## TO Compile and Run:
+ 1. Node server.js
+ 2. cd recipeFrontEnd & npm install
+ 3. npm start (in recipeFrontEnd directory)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ 4. In any case you are having trouble with "node server.js" command, or if the database is empty, you can find example data in "dataseed.js". Simply uncomment them all, run "node dataseed.js", then repeat step 1~3.  
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+## Overview
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Recipe World is where people share their own recipe along with pictures. You can explore other people's recipes and share your recipe by creating your own. All recipes will be rendered as a list of recipes in index page
 
-### `npm run build`
+## Data Model
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The application will store Users, Recipes using mongoDB on mlab (https://docs.mlab.com/)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+1. users can have multiple recipe posts
+2. each post can have one User
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+An Example User:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```javascript
+{
+  name: "Chang",
+  myRecipe: //an array of reference to Posts
+}
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+An Example Recipe:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```javascript
+{
+  user: // a reference to a User object
+  name: "Breakfast foods",
+  descriptions (steps): "1. Wake up 2. Make breakfast"
+  picture_url: "https://www.wellplated.com/wp-content/uploads/2017/12/Hoppin-John-recipe-600x629.jpg"
+}
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## [Link to Commented First Draft Schema](db.js)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Wireframes
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ * pictures are in documentation folder *
+
+
+/recipes/:id - page for each recipe based on id
+
+/recipe/create - page for creating recipe post
+
+![recipe create & recipe :id](documentation/WireFrame1.jpg)
+
+/user/:id - page for user profile based on id
+
+/recipes - page for showing list of recipe posts
+
+![recipes & user :id](documentation/WireFrame2.jpg)
+
+
+## Site map
+
+![Site Map](documentation/Sitemap.jpg)
+
+
+## User Stories or Use Cases
+
+1. as non-registered user, I (Logged in as Chang) can create recipe post
+2. I can view all of my recipe post in my profile
+3. I can view all recipes created by other users
+
+## Research Topics
+
+* (2 points) Use a Semantic-ui & material-ui for CSS framework throughout your site
+
+  * I tried to use both Semantic-ui and material-ui
+
+* (3 points) Create a simple MERN project (MongoDB, Express.js, React, Node.js)
+
+  * I tried to utilize all the frameworks we learned in class and connect them together.
+  * This was the most time-consuming and could not add more functionality to my website due to lack of time.
+  * Want to work on more functionality after finals.
+
+* (2 points) Using React.js
+
+  * I have previously learned React.js and want to use it to solidify the concepts.
+
+## [Link to Initial Main Project File](app.js)
+
+  * React initial set up is in the folder "recipeFrontEnd"
+
+## Annotations / References Used
+
+1. [tutorial on React](https://reactjs.org/docs/getting-started.html)
+2. [tutorial on Heroku deploy](https://dev.to/smithmanny/deploy-your-react-app-to-heroku-2b6f)
+3. [tutorial on mlab] (https://docs.mlab.com/)
+4. [tutorial on material-ui] (https://material-ui.com/getting-started/usage/)
+5. [tutorial on semantic-ui React] (https://react.semantic-ui.com/)
+6. [tutorial on MERN Project] (https://blog.cloudboost.io/creating-your-first-mern-stack-application-b6604d12e4d3)
+(https://medium.com/javascript-in-plain-english/full-stack-mongodb-react-node-js-express-js-in-one-simple-app-6cc8ed6de274)
